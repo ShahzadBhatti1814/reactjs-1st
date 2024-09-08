@@ -1,0 +1,27 @@
+.firstHeading{
+	color: black;
+	font-size: 50px;
+	font-weight: bolder;
+	text-align: center;
+}
+.firstHeading h1{
+	height: 35px;
+	width: 100%;
+	color: black;
+	background-color: lightsalmon;
+	font-size: 30px;
+	font-weight: bolder;
+	text-align: start;
+	margin-left: 0px;
+}
+.firstHeading p{
+	font-size: 22px;
+	text-align: start;
+}
+ .firstHeading ul li{
+	text-align: start;
+	font-size: 25px;
+} 
+.firstHeading  li{
+	margin-left: 30px;
+}
