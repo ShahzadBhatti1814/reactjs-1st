@@ -1,46 +1,35 @@
-import "./App.css";
-function App(){
-	return (
-	  <div className="firstHeading">
-	SHAHZAD NASEER BHATTI
-	<h1>OBJECTIVE:</h1>
-	<p>To enhance my knowlage and capabilities by working in a dynamic organization that pride itself is giving substantial responsibility to new talent.</p>
-	<h1>PERSONAL INFORMATION:</h1>
-	<ul>
-		<li>Father's name : Naseer Ahmed</li>
-		<li>surname  :  Bhatti</li>
-		<li>Date of Birth  :  14-11-2002</li>
-		<li>Cnic No  :  38407-0368237-9</li>
-		<li>Religion  :  Islam</li>
-		<li>Domicile  :  District Sargodha</li>
-		<li>Nationality  :  Pakistan</li>
-		<li>Marital status  :  Single</li>
-		<li>Mobile No  :  03018847093</li>
-		</ul>
-	<h1>QUALIFICATION:</h1>
-	<ul>
-		<li>Matriculation from B.I.S.E Sargodha</li>
-		<li>Intermediate from B.I.S.E Sargodha</li>
-		<li>Graduation from B.I.S.E Sargodha</li>
-	</ul>
-	<h1>OTHERS SKILLS</h1>
-	<ul>
-	<li>6 Month  Web Development course </li>
-	</ul>
-	<h1>HOBBIES</h1>
-	<ul>
-		<li>Use Computer</li>
-		<li>Net working</li>
-		<li>Play Cricket</li>
-	</ul>
-	<h1>LANGUAGE</h1>
-	<ul>
-	<li>Urdu</li>
-	<li>English</li>
-	<li>Punjabi</li>
-	</ul>
-		</div>
-	)
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import store from './redux/store';
+import './App.css';
+import Login from './components/Login';
+import Signup from './components/signup';
+import Profile from './components/Profile';
+
+const App = () => {
+  const [isAuth, setIsAuth] = useState(true);  
+
+  return (
+    <Provider store={store}>   
+      <Router>
+        <div className="App">
+          <Routes>
+            <Route path="/login" element={!isAuth ? <Login /> : <Navigate to="/signup" />} />
+            <Route path="/signup" element={isAuth ? <Signup /> : <Navigate to="/profile" />} />
+            <Route path="/profile" element={isAuth ? <Profile /> : <Navigate to="/login" />} />
+            <Route path="/" element={!isAuth ? <Login /> : <Navigate to="/signup" />} />
+          </Routes>
+        </div>
+      </Router>
+    </Provider>
+  );
 };
 
 export default App;
+
+
+
+
+
+
