@@ -1,5 +1,3 @@
-
-
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { signup } from '../redux/authSlice';
@@ -11,7 +9,6 @@ const Signup = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Mock signup, in real apps, API call can be done here
     dispatch(signup({ email }));
   };
 

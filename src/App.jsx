@@ -16,7 +16,7 @@ const App = () => {
         <div className="App">
           <Routes>
             <Route path="/login" element={!isAuth ? <Login /> : <Navigate to="/signup" />} />
-            <Route path="/signup" element={isAuth ? <Signup /> : <Navigate to="/profile" />} />
+            <Route path="/signup" element={!isAuth ? <Signup /> : <Navigate to="/profile" />} />
             <Route path="/profile" element={isAuth ? <Profile /> : <Navigate to="/login" />} />
             <Route path="/" element={!isAuth ? <Login /> : <Navigate to="/signup" />} />
           </Routes>
